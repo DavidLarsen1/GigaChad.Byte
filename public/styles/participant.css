@@ -22,6 +22,17 @@ body {
     /* overflow: hidden; */
 }
 
+#invox{
+    grid-column: 1/4;
+    grid-row: 2/3;
+    background-color: #00000000;
+}
+#screenshotArea{
+    grid-column: 1/4;
+    grid-row: 2/3;
+    background-color: #00000000;
+}
+
 /* Top Area */
 
 #toolButtons {
@@ -43,36 +54,19 @@ body {
 
 #screenshotbox {
     grid-area: screenshot-box;
-    background-color: #272727;
+    background-color: beige;
     width: 100%;
     height: 100%;
-    max-height: 31em;
-}
-#invbox {
-    grid-column:  1/4;
-    grid-row: 2/3;
-    /* grid-area: notes; */
-    background-color: rgba(157, 60, 60, 0);
-    width: 100%;
-    height: 100%;
-}
-
-img {
-  margin: 0px 230px;
-  display: flex;
-  justify-content: right;
-  height: 100%;
-  justify-content: right;
 }
 
 #noteContainer {
-  grid-area: notes;
-  justify-self: center;
-  border: none;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+    grid-area: notes;
+    justify-self: center;
+    border: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 #note {
@@ -111,9 +105,9 @@ textarea::placeholder {
     height: 95%;
     padding: 3%;
 }
-video {
-  width: 99%;
-  height: 100%;
+video{
+    width: 50px;
+    height: 50px;
 }
 
 #questionContainer {
