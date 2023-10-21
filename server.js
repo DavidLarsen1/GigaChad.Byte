@@ -31,6 +31,6 @@ io.on('connection', (socket) => {
 
   socket.on('submit-question', (question) => {
     console.log('new question submitted: ', question);
-    socket.broadcast.emit('recieve-question', question)
+    socket.broadcast.emit('receive-question', question)
   })
 });
