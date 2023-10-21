@@ -54,9 +54,26 @@ body {
 
 #screenshotbox {
     grid-area: screenshot-box;
-    background-color: beige;
+    background-color: #272727;
     width: 100%;
     height: 100%;
+    max-height: 31em;
+}
+/* #invbox {
+    grid-column:  1/4;
+    grid-row: 2/3;
+    /* grid-area: notes;
+    background-color: rgba(157, 60, 60, 0);
+    width: 100%;
+    height: 100%;
+} */
+
+img {
+  margin: 0px 230px;
+  display: flex;
+  justify-content: right;
+  height: 100%;
+  justify-content: right;
 }
 
 #noteContainer {
@@ -95,9 +112,9 @@ textarea::placeholder {
 
 /* Bottom Area */
 
-#clientPreview {
+/* #clientPreview { 
     grid-area: client-preview;
-    /* align-self: center; */
+    /* align-self: center; 
     background-color: #ff7824;
     margin: 3px 0px;
     border: 2px solid white;
@@ -105,9 +122,9 @@ textarea::placeholder {
     height: 95%;
     padding: 3%;
 }
-video{
-    width: 50px;
-    height: 50px;
+video {
+  width: 99%;
+  height: 100%;
 }
 
 #questionContainer {
