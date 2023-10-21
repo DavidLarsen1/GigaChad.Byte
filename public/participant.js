@@ -184,3 +184,70 @@ takeScreenshotButton.addEventListener("click", () => {
   canvas.addEventListener('touchcancel', () =>
   isDrawing = false);
   }
+
+
+// Create a function for the text bubble button.
+const bubbleButton = document.getElementById('bubbleButton');
+bubbleButton.addEventListener('click', () => {
+  const bubble = document.createElement("div");
+  bubble.classname.add('bubble');
+  const handle = document.createElement("div");
+  bubble.classname.add('handle');
+  const content = document.createElement("div");
+  bubble.classname.add('content');
+  canvas.appendchild(bubble)
+  bubble.appendchild(handle)
+  bubble.appendchild(content)
+});
+
+// Chat GPT gave this code for the classes above:
+// .bubble {
+//   position: absolute;
+//   width: 200px;
+//   background-color: #3498db;
+//   border-radius: 10px;
+//   cursor: move;
+// }
+
+// .handle {
+//   width: 100%;
+//   height: 20px;
+//   background-color: #2980b9;
+//   border-top-left-radius: 10px;
+//   border-top-right-radius: 10px;
+//   cursor: move;
+// }
+
+// .content {
+//   padding: 10px;
+//   color: #ffffff;
+//   user-select: none;
+// }
+
+let isDragging = false;
+let initialX;
+let initialY;
+
+const bubble = document.querySelector(".bubble");
+const handle = document.querySelector(".handle");
+
+handle.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  initialX = e.clientX - bubble.getBoundingClientRect().left;
+  initialY = e.clientY - bubble.getBoundingClientRect().top;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+
+  const newX = e.clientX - initialX;
+  const newY = e.clientY - initialY;
+
+  bubble.style.left = newX + "px";
+  bubble.style.top = newY + "px";
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+});
+
