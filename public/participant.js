@@ -127,89 +127,88 @@ let lastX = 0;
 let lastY = 0;
 
 // whiteboard functionallity:
-whiteboardButton.addEventListener('click', () => {
-  if (!whiteboard) {
-    whiteboard = true
-  }
-  else {
-    whiteboard = false
-  } return
-});
+// whiteboardButton.addEventListener('click', () => {
+//   if (!whiteboard) {
+//     whiteboard = true
+//   }
+//   else {
+//     whiteboard = false
+//   } return
+// });
 
-function startDrawing(e) {
-  isDrawing = true
-  [lastX, lastY] = [e.clientX, e.clientY]
-}
+// function startDrawing(e) {
+//   isDrawing = true
+//   [lastX, lastY] = [e.clientX, e.clientY]
+// }
 
-function draw(e) {
-  if (!isDrawing) return;
-    ctx.beginPath();
-  ctx.strokeStyle = "black";
-  ctx.lineWidth = 2;
-  ctx.moveTo(lastX, lastY);
-  ctx.lineTo(e.clientX, e.clientY);
-  ctx.stroke();
-  [lastX, lastY] = [e.clientX, e.clientY]
-}
-if (whiteboard) {
-whiteboardCanvas.addEventListener('mousedown', startDrawing);
-whiteboardCanvas.addEventListener('mousemove', draw);
-whiteboardCanvas.addEventListener('mouseup', () => isDrawing = false);
-whiteboardCanvas.addEventListener('mouseout', () => isDrawing = false);
-whiteboardCanvas.addEventListener('touchstart', (e) => {
-  e.preventDefault();
-  startDrawing(e.touches[0]);
-});
-whiteboardCanvas.addEventListener('touchmove', (e) => {
-  e.preventDefault();
-  draw(e.touches[0])
-});
-whiteboardCanvas.addEventListener('touched', () =>
-isDrawing = false);
-whiteboardCanvas.addEventListener('touchcancel', () =>
-isDrawing = false);
-}
+// function draw(e) {
+//   if (!isDrawing) return;
+//     ctx.beginPath();
+//   ctx.strokeStyle = "black";
+//   ctx.lineWidth = 2;
+//   ctx.moveTo(lastX, lastY);
+//   ctx.lineTo(e.clientX, e.clientY);
+//   ctx.stroke();
+//   [lastX, lastY] = [e.clientX, e.clientY]
+// }
+// if (whiteboard) {
+// whiteboardCanvas.addEventListener('mousedown', startDrawing);
+// whiteboardCanvas.addEventListener('mousemove', draw);
+// whiteboardCanvas.addEventListener('mouseup', () => isDrawing = false);
+// whiteboardCanvas.addEventListener('mouseout', () => isDrawing = false);
+// whiteboardCanvas.addEventListener('touchstart', (e) => {
+//   e.preventDefault();
+//   startDrawing(e.touches[0]);
+// });
+// whiteboardCanvas.addEventListener('touchmove', (e) => {
+//   e.preventDefault();
+//   draw(e.touches[0])
+// });
+// whiteboardCanvas.addEventListener('touched', () =>
+// isDrawing = false);
+// whiteboardCanvas.addEventListener('touchcancel', () =>
+// isDrawing = false);
+// }
 
 
 
 // Create a function for the text bubble button.
-const bubbleButton = document.getElementById('bubbleButton');
-whiteboardCanvas.width = screenshotbox.Width;
-whiteboardCanvas.height = screenshotbox.Height;
-bubbleButton.addEventListener('click', () => {
-  const bubble = document.createElement("div");
-  bubble.classList.add('bubble');
-  const content = document.createElement("div");
-  content.classList.add('content');
-  const handle = document.createElement("div");
-  handle.classList.add('handle');
-  whiteboardCanvas.appendchild(bubble)
-  bubble.appendchild(handle)
-  bubble.appendchild(content)
-});
+// const bubbleButton = document.getElementById('bubbleButton');
+// const screenshotbox = document.getElementById('screenshotbox');
+// bubbleButton.addEventListener('click', () => {
+//   const bubble = document.createElement("div");
+//   bubble.classList.add('bubble');
+//   const content = document.createElement("div");
+//   content.classList.add('content');
+//   const handle = document.createElement("div");
+//   handle.classList.add('handle');
+//   screenshotbox.appendchild(bubble)
+//   bubble.appendchild(handle)
+//   bubble.appendchild(content)
+// });
 
-let isDragging = false;
-let initialX;
-let initialY;
+// let isDragging = false;
+// let initialX;
+// let initialY;
 
-const bubble = document.getElementsByClassName("bubble");
-const handle = document.getElementsByClassName("handle");
-for (let i = 0; i < handle.length; i++) {
-handle[i].addEventListener("mousedown", (e) => {
-  isDragging = true;
-  initialX = e.clientX - bubble.getBoundingClientRect().left;
-  initialY = e.clientY - bubble.getBoundingClientRect().top;
-});
-}
+// const bubble = document.getElementsByClassName("bubble");
+// const handle = document.getElementsByClassName("handle");
+// for (let i = 0; i < handle.length; i++) {
+// handle[i].addEventListener("mousedown", (e) => {
+//   isDragging = true;
+//   initialX = e.clientX - bubble.getBoundingClientRect().left;
+//   initialY = e.clientY - bubble.getBoundingClientRect().top;
+// });
+// }
 
-document.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
+// document.addEventListener("mousemove", (e) => {
+//   if (!isDragging) return;
 
-  const newX = e.clientX - initialX;
-  const newY = e.clientY - initialY;
-  bubble.style.left = newX + "px";
-  bubble.style.top = newY + "px";
-});
-document.addEventListener("mouseup", () => {
-  isDragging = false;
-});
+//   const newX = e.clientX - initialX;
+//   const newY = e.clientY - initialY;
+//   bubble.style.left = newX + "px";
+//   bubble.style.top = newY + "px";
+// });
+// document.addEventListener("mouseup", () => {
+//   isDragging = false;
+// });
