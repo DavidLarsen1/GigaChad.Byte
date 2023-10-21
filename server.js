@@ -27,7 +27,10 @@ io.on('connection', (socket) => {
   socket.on('icecandidate', (candidate) => {
     console.log('new ice candidate from ', socket.id);
     socket.broadcast.emit('icecandidate', candidate);
+
+  socket.on('question-submit', (question) => {
+    console.log('new question submitted: ', question);
+    socket.broadcast.emit('recieve-question', question)
+  })
   });
 });
-
-

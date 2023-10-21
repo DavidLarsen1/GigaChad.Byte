@@ -1,32 +1,31 @@
-
 // presenter.js
 'use strict';
 const socket = io();
 const peer = new RTCPeerConnection({
   iceServers: [
-      {
-        urls: "stun:stun.relay.metered.ca:80",
-      },
-      {
-        urls: "turn:a.relay.metered.ca:80",
-        username: "68099be6bbbd15dd03361092",
-        credential: "DupS1hUdUGzwahXt",
-      },
-      {
-        urls: "turn:a.relay.metered.ca:80?transport=tcp",
-        username: "68099be6bbbd15dd03361092",
-        credential: "DupS1hUdUGzwahXt",
-      },
-      {
-        urls: "turn:a.relay.metered.ca:443",
-        username: "68099be6bbbd15dd03361092",
-        credential: "DupS1hUdUGzwahXt",
-      },
-      {
-        urls: "turn:a.relay.metered.ca:443?transport=tcp",
-        username: "68099be6bbbd15dd03361092",
-        credential: "DupS1hUdUGzwahXt",
-      },
+    {
+      urls: "stun:stun.relay.metered.ca:80",
+    },
+    {
+      urls: "turn:a.relay.metered.ca:80",
+      username: "68099be6bbbd15dd03361092",
+      credential: "DupS1hUdUGzwahXt",
+    },
+    {
+      urls: "turn:a.relay.metered.ca:80?transport=tcp",
+      username: "68099be6bbbd15dd03361092",
+      credential: "DupS1hUdUGzwahXt",
+    },
+    {
+      urls: "turn:a.relay.metered.ca:443",
+      username: "68099be6bbbd15dd03361092",
+      credential: "DupS1hUdUGzwahXt",
+    },
+    {
+      urls: "turn:a.relay.metered.ca:443?transport=tcp",
+      username: "68099be6bbbd15dd03361092",
+      credential: "DupS1hUdUGzwahXt",
+    },
   ],
 });
 
@@ -72,7 +71,7 @@ socket.on('icecandidate', async (candidate) => {
 
 // Question adding socket connection.
 const questionContainer = document.getElementById("questionContainer");
-socket.on('submit-question', (question) => {
+socket.on('recieve-question', (questionuestion) => {
   const message = document.createElement("p");
   message.textContent = question;
   questionContainer.appendChild(message);
@@ -89,5 +88,4 @@ const clearAll = document.getElementById("clearAllButton");
 clearAll.addEventListener("click", () => {
   questionContainer.innerHTML = "";
 });
-
 

@@ -2,30 +2,30 @@
 'use strict';
 const socket = io();
 const peer = new RTCPeerConnection({
-  iceServers: [
-      {
-        urls: "stun:stun.relay.metered.ca:80",
-      },
-      {
-        urls: "turn:a.relay.metered.ca:80",
-        username: "68099be6bbbd15dd03361092",
-        credential: "DupS1hUdUGzwahXt",
-      },
-      {
-        urls: "turn:a.relay.metered.ca:80?transport=tcp",
-        username: "68099be6bbbd15dd03361092",
-        credential: "DupS1hUdUGzwahXt",
-      },
-      {
-        urls: "turn:a.relay.metered.ca:443",
-        username: "68099be6bbbd15dd03361092",
-        credential: "DupS1hUdUGzwahXt",
-      },
-      {
-        urls: "turn:a.relay.metered.ca:443?transport=tcp",
-        username: "68099be6bbbd15dd03361092",
-        credential: "DupS1hUdUGzwahXt",
-      },
+iceServers: [
+{
+  urls: "stun:stun.relay.metered.ca:80",
+},
+{
+  urls: "turn:a.relay.metered.ca:80",
+  username: "68099be6bbbd15dd03361092",
+  credential: "DupS1hUdUGzwahXt",
+},
+{
+  urls: "turn:a.relay.metered.ca:80?transport=tcp",
+  username: "68099be6bbbd15dd03361092",
+  credential: "DupS1hUdUGzwahXt",
+},
+{
+  urls: "turn:a.relay.metered.ca:443",
+  username: "68099be6bbbd15dd03361092",
+  credential: "DupS1hUdUGzwahXt",
+},
+{
+  urls: "turn:a.relay.metered.ca:443?transport=tcp",
+  username: "68099be6bbbd15dd03361092",
+  credential: "DupS1hUdUGzwahXt",
+},
   ],
 });
 
@@ -92,7 +92,6 @@ submit.addEventListener("click", e => {
   e.preventDefault();
   if (question.textContent === "") {return};
   socket.emit('submit-question', question.textContent);
-  // question.textContent = "";
 });
 
 
