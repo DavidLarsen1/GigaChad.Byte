@@ -22,55 +22,53 @@
 
     <!-- </div> -->
     <div id="content">
+      <!-- Top Area -->
+      <div id="toolButtons">
+        <!-- the following two div where created by Sean. Feel free to adjust them as needed,
+        their names are linked to js -->
+        <div id="whiteboardButton">
+          <button id="startWhiteboardButton" class="orangeButton" role="button">WHITEBOARD</button>
+        </div>
+        <div id="bubbleButton">
+          <button id="addBubbleButton" class="orangeButton" role="button">BUBBLE</button>
+        </div>
+        <div id="screenshotButton">
+          <button id="takeScreenshotButton" class="orangeButton" role="button">SCREENSHOT</button>
+        </div>
+      </div>
+
+      <!-- Middle Area -->
+      <!-- <section id="screenshotElements"> -->
+        <div class="download-content" id="screenshotbox"></div>
+
+        <div class="download-content" id="noteContainer">
+          <textarea id="note" placeholder="Notes"></textarea>
+        </div>
+      <!-- </section> -->
+
+      <!-- Bottom Area -->
 
       <!-- here is the video of the teacher screen  -->
       <div id="clientPreview">
         <!-- This is live share from the teacher and where the screenshot is taken -->
         <video id="client-screen" autoplay muted playsinline></video>
 
-      
-  <div id="download_box">   <!-- this is where it is saved -->
+
+        <!-- this is where it is saved -->
         <!-- this needs style -->
-      <div id="screenshotbox"></div>
-
-
-
-
-
-
-      
-
-
       </div>
-      <!-- the following two div where created by Sean. Feel free to adjust them as needed,
-        their names are linked to js -->
-      <!-- <div id="whiteboardButton">
-        <button id="startWhiteboardButton" class="orangeButton" role="button">WHITEBOARD</button>
-      </div>
-      <div id="bubbleButton">
-        <button id="addBubbleButton" class="orangeButton" role="button">BUBBBLE</button>
-      </div> -->
-      <div id="screenshotButton">
-        <button id="takeScreenshotButton" class="orangeButton" role="button">SCREENSHOT</button>
-      </div><br>
-      <div id="noteContainer">
-        <textarea id="note" placeholder="Notes"></textarea>
-      </div>
-      </div> 
 
-      <!-- Bottom Area -->
       <div id="questionContainer">
         <textarea id="questionText" placeholder="Enter your question here"></textarea>
         <button class="orangeButton" id="submitButton">SUBMIT</button>
       </div>
 
       <div id="saveButton">
-        <button class="orangeButton" id="save">Save</button>
+        <button class="orangeButton" id="save">SAVE</button>
       </div>
 
     </div>
   </main>
-
 
 </body>
 
