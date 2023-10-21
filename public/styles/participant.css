@@ -48,14 +48,14 @@ body {
     height: 100%;
     max-height: 31em;
 }
-#invbox {
+/* #invbox {
     grid-column:  1/4;
     grid-row: 2/3;
-    /* grid-area: notes; */
+    /* grid-area: notes;
     background-color: rgba(157, 60, 60, 0);
     width: 100%;
     height: 100%;
-}
+} */
 
 img {
   margin: 0px 230px;
@@ -72,7 +72,7 @@ img {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100%;
+ height: 100%;
 }
 
 #note {
@@ -101,16 +101,29 @@ textarea::placeholder {
 
 /* Bottom Area */
 
-#clientPreview {
+/* #clientPreview { 
     grid-area: client-preview;
-    /* align-self: center; */
+    /* align-self: center; 
     background-color: #ff7824;
     margin: 3px 0px;
     border: 2px solid white;
     width: 95%;
     height: 95%;
     padding: 3%;
+}*/
+#clientPreview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Set your desired height here */
+    max-width: 0; /* Set your desired width here */
+    margin: 0 auto; /* Center the element horizontally */
+    /* background-color: #ff782400; Set your desired background color */
+    border: 2px solid white; /* Set your desired border styles */
+    border-radius: 10px; /* Set your desired border radius */
+    margin-bottom: 20px; /* Add margin if needed */
 }
+
 video {
   width: 99%;
   height: 100%;
