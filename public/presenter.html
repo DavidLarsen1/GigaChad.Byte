@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Teacher Screen</title>
+</head>
+
+<body>
+  <h1>Teacher share here</h1>
+  <!-- here is the share screen button for students view -->
+  <button id="viewTeacher">Screen share with participant</button>
+
+  <style>
+    #viewTeacher {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      color: white;
+      background-color: red;
+      padding: 10px;
+      border: 1px solid red;
+      border-radius: 4px;
+    }
+  </style>
+
+  
+
+  <!-- here is what teacher wants to share from there screen -->
+  <button id="startSharingButton">Start Sharing</button>
+  <button id="stopSharingButton" style="display: none;">Stop Sharing</button>
+
+  <video id="localScreen" autoplay playsinline style="display: none;"></video>
+  <canvas id="sharedCanvas" style="display: none;"></canvas>
+
+  <script>
+    let sharingInterval;
+    const startSharingButton = document.getElementById("startSharingButton");
+    const stopSharingButton = document.getElementById("stopSharingButton");
+    const localScreen = document.getElementById("localScreen");
+    const sharedCanvas = document.getElementById("sharedCanvas");
+
+    // Get user media for screen sharing
+    startSharingButton.addEventListener("click", async () => {
+      startSharingButton.style.display = "none";
+      stopSharingButton.style.display = "inline";
+
+      // Start sharing the webpage
+      sharingInterval = setInterval(shareWebpage, 1000); // Capture and share every second
+    });
+
+    // Stop screen sharing
+    stopSharingButton.addEventListener("click", () => {
+      clearInterval(sharingInterval);
+      startSharingButton.style.display = "inline";
+      stopSharingButton.style.display = "none";
+    });
+
+    function shareWebpage() {
+      // Capture the webpage content and share it
+      const context = sharedCanvas.getContext("2d");
+      sharedCanvas.width = window.innerWidth;
+      sharedCanvas.height = window.innerHeight;
+      context.drawImage(document.documentElement, 0, 0,    window.innerWidth, window.innerHeight);
+      const dataURL = sharedCanvas.toDataURL("image/jpeg", 0.7);
+    }
+  </script>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./presenter.js"></script>
+</html>

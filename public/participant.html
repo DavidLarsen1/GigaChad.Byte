@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home View </title>
+  <!-- <link rel="stylesheet" href="styles/participant.css"> -->
+</head>
+
+<body>
+  <header>
+    <h1 id="title">Placeholder Title</h1>
+    <nav class="navMenu">
+      <a href="index.html">Home</a>
+      <a href="participant.html">Participant</a>
+      <a href="presenter.html">Presenter</a>
+      <a href="public/admin.html">admin</a>
+      <a href="public/client.html">client</a>
+      <div class="dot"></div>
+    </nav>
+  </header>
+
+  <main>
+    <div id="content">
+      <div id="">
+      <div id="screenshotButton">
+
+        <button class="orangeButton" role="button">SCREENSHOT</button>
+      </div><br>
+      <div id="notes">
+
+      </div>
+
+      <!-- Bottom Area -->
+      <div id="questionArea">
+        <textarea id="question" placeholder="Enter your question here"></textarea>
+        <button class="orangeButton" id="submit">SUBMIT</button>
+      </div>
+      
+      <div id="saveButton">
+        <button class="orangeButton" id="save">Save</button>
+      </div>
+
+
+      <!-- Client script -->
+
+  </main>
+  </div>
+  <!-- here is the video of the teacher screen  -->
+
+  <style>
+    #client-screen {
+      border: 1px solid red;
+      background-color: gray;
+      width: 100%;
+      margin: auto;
+    }
+  </style>
+
+  <video id="client-screen" autoplay muted playsinline></video>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./participant.js"></script>
+</html>
