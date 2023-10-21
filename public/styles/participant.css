@@ -157,7 +157,7 @@ video {
 }
 
 /* Chat GPT gave this code for the classes: */
-/* .bubble {
+.bubble {
   position: absolute;
   width: 200px;
   background-color: #3498db;
@@ -178,4 +178,4 @@ video {
   padding: 10px;
   color: #ffffff;
   user-select: none;
-} */
+}
