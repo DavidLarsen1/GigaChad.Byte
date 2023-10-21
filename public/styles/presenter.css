@@ -20,7 +20,7 @@ body {
     background: #272727;
     font-family: "Montserrat", sans serif;
     height: 100%;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 #questionSection {
