@@ -1,4 +1,4 @@
-// presenter.js
+// particpant.js
 'use strict';
 const socket = io();
 const peer = new RTCPeerConnection();
@@ -25,3 +25,79 @@ socket.on('icecandidate', async (candidate) => {
   await peer.addIceCandidate(new RTCIceCandidate(candidate));
 });
 
+
+let sharingInterval;
+const shareScreenButton = document.getElementById("shareScreenButton");
+const localScreen = document.getElementById("localScreen");
+const sharedCanvas = document.getElementById("sharedCanvas");
+
+shareScreenButton.addEventListener("click", () => {
+  if (!sharingInterval) {
+    // Start screen sharing
+    sharingInterval = setInterval(shareWebpage, 1000);
+    shareScreenButton.textContent = "STOP SHARING";
+  } else {
+    // Stop screen sharing
+    clearInterval(sharingInterval);
+    sharingInterval = null;
+    shareScreenButton.textContent = "START SHARING";
+  }
+});
+
+function shareWebpage() {
+  // Capture the webpage content and share it
+  const context = sharedCanvas.getContext("2d");
+  sharedCanvas.width = window.innerWidth;
+  sharedCanvas.height = window.innerHeight;
+  context.drawImage(document.documentElement, 0, 0, window.innerWidth, window.innerHeight);
+
+  const dataURL = sharedCanvas.toDataURL("image/jpeg", 0.7);
+}
+
+
+
+
+
+
+// add text here
+const submit = document.getElementById('submitButton');
+const question = document.getElementById('questionText')
+submit.addEventListener("click", e => {
+  e.preventDefault();
+  if (question.textContent === "") {return};
+  socket.emit('submit-question', question.textContent);
+  // question.textContent = "";
+});
+
+
+
+
+
+
+
+// this is for screen shots of the preivew
+const takeScreenshotButton = document.getElementById("takeScreenshotButton");
+const clientScreen = document.getElementById("client-screen");
+const screenshotCanvas = document.getElementById("screenshotCanvas");
+const screenshotList = document.getElementById("screenshotList");
+
+let screenshotCount = 1;
+let lastScreenshot;
+
+// Take a screenshot and display it
+takeScreenshotButton.addEventListener("click", () => {
+  const context = screenshotCanvas.getContext('2d');
+  screenshotCanvas.width = clientScreen.videoWidth;
+  screenshotCanvas.height = clientScreen.videoHeight;
+  context.drawImage(clientScreen, 0, 0, screenshotCanvas.width, screenshotCanvas.height);
+
+  // Create a new image element for the screenshot or update the existing one
+  if (lastScreenshot) {
+    lastScreenshot.src = screenshotCanvas.toDataURL('image/png');
+  } else {
+    lastScreenshot = new Image();
+    lastScreenshot.src = screenshotCanvas.toDataURL('image/png');
+    lastScreenshot.style.display = "block";
+    screenshotList.appendChild(lastScreenshot);
+  }
+});

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home View </title>
-  <!-- <link rel="stylesheet" href="styles/participant.css"> -->
+  <link rel="stylesheet" href="styles/participant.css">
 </head>
 
 <body>
@@ -15,51 +15,53 @@
       <a href="index.html">Home</a>
       <a href="participant.html">Participant</a>
       <a href="presenter.html">Presenter</a>
-      <a href="public/admin.html">admin</a>
-      <a href="public/client.html">client</a>
-      <div class="dot"></div>
     </nav>
   </header>
 
   <main>
     <div id="content">
-      <div id="">
+
+      <!-- here is the video of the teacher screen  -->
+      <div id="clientPreview">
+        <!-- This is live share from the teacher and where the screenshot is taken -->
+        <video id="client-screen" autoplay muted playsinline></video>
+
+        
+        <!-- this is where it is saved -->
+    <div id="screenshotList">
+          
+          <!-- This is where the screenshot is sent to -->
+          <canvas id="screenshotCanvas"></canvas>
+        
+    </div>
+
+      </div>
+
       <div id="screenshotButton">
-
-        <button class="orangeButton" role="button">SCREENSHOT</button>
+        <button id="takeScreenshotButton" class="orangeButton" role="button">SCREENSHOT</button>
       </div><br>
-      <div id="notes">
-
+      <div id="noteContainer">
+        <textarea id="note" placeholder="Notes"></textarea>
       </div>
 
       <!-- Bottom Area -->
-      <div id="questionArea">
-        <textarea id="question" placeholder="Enter your question here"></textarea>
-        <button class="orangeButton" id="submit">SUBMIT</button>
+      <div id="questionContainer">
+        <textarea id="questionText" placeholder="Enter your question here"></textarea>
+        <button class="orangeButton" id="submitButton">SUBMIT</button>
       </div>
-      
+
       <div id="saveButton">
         <button class="orangeButton" id="save">Save</button>
       </div>
 
-
-      <!-- Client script -->
-
+    </div>
   </main>
-  </div>
-  <!-- here is the video of the teacher screen  -->
 
-  <style>
-    #client-screen {
-      border: 1px solid red;
-      background-color: gray;
-      width: 100%;
-      margin: auto;
-    }
-  </style>
 
-  <video id="client-screen" autoplay muted playsinline></video>
 </body>
+
+<!-- Client script -->
 <script src="/socket.io/socket.io.js"></script>
 <script src="./participant.js"></script>
+
 </html>

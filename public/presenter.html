@@ -1,70 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Teacher Screen</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presenter</title>
+  <link rel="stylesheet" href="styles/presenter.css">
 </head>
 
 <body>
-  <h1>Teacher share here</h1>
-  <!-- here is the share screen button for students view -->
-  <button id="viewTeacher">Screen share with participant</button>
+  <header>
+    <h1 id="title">Placeholder Title</h1>
+    <nav class="navMenu">
+      <a href="index.html">Home</a>
+      <a href="participant.html">Participant</a>
+      <a href="presenter.html">Presenter</a>
+    </nav>
+  </header>
+  <main>
+    <div id="content">
 
-  <style>
-    #viewTeacher {
-      position: fixed;
-      bottom: 50px;
-      right: 50px;
-      color: white;
-      background-color: red;
-      padding: 10px;
-      border: 1px solid red;
-      border-radius: 4px;
-    }
-  </style>
+      <h1>Teacher share here</h1>
 
-  
+      <div id="presentButtons"></div>
 
-  <!-- here is what teacher wants to share from there screen -->
-  <button id="startSharingButton">Start Sharing</button>
-  <button id="stopSharingButton" style="display: none;">Stop Sharing</button>
+      <!-- here is the share screen button for students view -->
+      <button class="orangeButton" id="viewTeacher">SHARE SCREEN</button>
 
-  <video id="localScreen" autoplay playsinline style="display: none;"></video>
-  <canvas id="sharedCanvas" style="display: none;"></canvas>
+      <!-- The Question Area -->
+      <div id=questionSection>
+        <div id="questionContainer">
+ 
+        </div>
+        <button class="orangeButton" id="clear1Button">Clear 1</button>
+        <button class="orangeButton" id="clearAllButton">Clear All</button>
+      </div <!-- Presenter Notes -->
+      <div id="noteContainer">
+        <textarea id="note" placeholder="Notes"></textarea>
+      </div>
 
-  <script>
-    let sharingInterval;
-    const startSharingButton = document.getElementById("startSharingButton");
-    const stopSharingButton = document.getElementById("stopSharingButton");
-    const localScreen = document.getElementById("localScreen");
-    const sharedCanvas = document.getElementById("sharedCanvas");
 
-    // Get user media for screen sharing
-    startSharingButton.addEventListener("click", async () => {
-      startSharingButton.style.display = "none";
-      stopSharingButton.style.display = "inline";
+      <video id="localScreen" autoplay playsinline style="display: none;"></video>
+      <canvas id="sharedCanvas" style="display: none;"></canvas>
 
-      // Start sharing the webpage
-      sharingInterval = setInterval(shareWebpage, 1000); // Capture and share every second
-    });
+      <script>
 
-    // Stop screen sharing
-    stopSharingButton.addEventListener("click", () => {
-      clearInterval(sharingInterval);
-      startSharingButton.style.display = "inline";
-      stopSharingButton.style.display = "none";
-    });
-
-    function shareWebpage() {
-      // Capture the webpage content and share it
-      const context = sharedCanvas.getContext("2d");
-      sharedCanvas.width = window.innerWidth;
-      sharedCanvas.height = window.innerHeight;
-      context.drawImage(document.documentElement, 0, 0,    window.innerWidth, window.innerHeight);
-      const dataURL = sharedCanvas.toDataURL("image/jpeg", 0.7);
-    }
-  </script>
+      </script>
+  </main>
+  </div>
+  </div>
 </body>
 <script src="/socket.io/socket.io.js"></script>
 <script src="./presenter.js"></script>
+
 </html>

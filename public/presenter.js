@@ -1,10 +1,10 @@
-// participant.js
+// presenter.js
 'use strict';
 const socket = io();
 const peer = new RTCPeerConnection();
 
-const helpButton = document.getElementById('viewTeacher');
-helpButton.addEventListener('click', async () => {
+const viewTeacher = document.getElementById('viewTeacher');
+viewTeacher.addEventListener('click', async () => {
   try {
     const stream = await navigator.mediaDevices.getDisplayMedia({
       audio: false,
@@ -33,6 +33,32 @@ peer.addEventListener('icecandidate', (event) => {
     socket.emit('icecandidate', event.candidate);
   }
 });
+
+
 socket.on('icecandidate', async (candidate) => {
   await peer.addIceCandidate(new RTCIceCandidate(candidate));
+});
+
+
+
+
+
+// Question adding socket connection.
+const questionContainer = document.getElementById("questionContainer");
+socket.on('submit-question', (question) => {
+  const message = document.createElement("p");
+  message.textContent = question;
+  questionContainer.appendChild(message);
+});
+
+// function to clear one question.
+const clear1 = document.getElementById("clear1Button");
+clear1.addEventListener("click", () => {
+  questionContainer.removeChild(questionContainer.firstChild);
+});
+
+// function to clear all questions.
+const clearAll = document.getElementById("clearAllButton");
+clearAll.addEventListener("click", () => {
+  questionContainer.innerHTML = "";
 });
