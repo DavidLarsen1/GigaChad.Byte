@@ -2,56 +2,57 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Presenter</title>
-  <link rel="stylesheet" href="styles/presenter.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presenter</title>
+    <link rel="stylesheet" href="styles/presenter.css">
 </head>
 
 <body>
-  <header>
-    <h1 id="title">Placeholder Title</h1>
-    <nav class="navMenu">
-      <a href="index.html">Home</a>
-      <a href="participant.html">Participant</a>
-      <a href="presenter.html">Presenter</a>
-    </nav>
-  </header>
-  <main>
-    <div id="content">
+    <header>
+        <h1 id="title">Placeholder Title</h1>
+        <nav class="navMenu">
+            <a href="index.html">Home</a>
+            <a href="participant.html">Participant</a>
+            <a href="presenter.html">Presenter</a>
+        </nav>
+    </header>
+    <main>
+        <div id="content">
 
-      <h1>Teacher share here</h1>
+            <!-- <h1>Teacher share here</h1> -->
 
-      <div id="shareButton"></div>
 
-      <!-- here is the share screen button for students view -->
-      <button class="orangeButton" id="viewTeacher">SHARE SCREEN</button>
+            <!-- here is the share screen button for students view -->
+            <div id="shareButton">
+                <button class="orangeButton" id="viewTeacher">SHARE</button>
+            </div>
+            <!-- The Question Area -->
+            
+            <div id=questionSection>
+                <div id="questionContainer">
 
-      <!-- The Question Area -->
-      <div id=questionSection>
-        <div id="questionContainer">
- 
+                </div>
+                <div id="questionButtons">
+                    <button class="orangeButton" id="clear1Button">CLEAR 1</button>
+                    <button class="orangeButton" id="clearAllButton">CLEAR All</button>
+                </div>
+            </div 
+            <!-- Presenter Notes -->
+            <div id="noteContainer">
+                <textarea id="note" placeholder="Notes"></textarea>
+            </div>
+
+            <video id="localScreen" autoplay playsinline style="display: none;"></video>
+            <canvas id="sharedCanvas" style="display: none;"></canvas>
+
+            <script>
+
+            </script>
         </div>
-        <div id="questionButtons">
-            <button class="orangeButton" id="clear1Button">CLEAR 1</button>
-            <button class="orangeButton" id="clearAllButton">CLEAR All</button>
-        </div>
-      </div <!-- Presenter Notes -->
-      <div id="noteContainer">
-        <textarea id="note" placeholder="Notes"></textarea>
-      </div>
- 
-<!-- this is to show other web pages, not worth it right now. -->
-      <!-- <video id="localScreen" autoplay playsinline style="display: none;"></video>
-      <canvas id="sharedCanvas" style="display: none;"></canvas> -->
-
-      <script>
-
-      </script>
+    </main>
     </div>
-  </main>
-  </div>
-  </div>
+    </div>
 </body>
 <script src="/socket.io/socket.io.js"></script>
 <script src="./presenter.js"></script>
