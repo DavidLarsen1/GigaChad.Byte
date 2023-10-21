@@ -73,6 +73,15 @@ textarea::placeholder {
   margin-top: 20px;
 }
 
+/*whiteboard Button*/
+#whiteboardButton {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: center;
+  border: none;
+  margin-top: 20px;
+}
+
 /* Video Preview */
 #clientPreview {
   background-color: #ff7824;
