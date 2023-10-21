@@ -6,9 +6,10 @@ const app = express();
 
 app.use('/', express.static('public'));
 
-const httpServer = app.listen(3000, () => {
+const httpServer = app.listen(3000, '0.0.0.0', () => {
   console.log(`Server started on 3000`);
 });
+
 
 const io = new SocketServer(httpServer);
 io.on('connection', (socket) => {
