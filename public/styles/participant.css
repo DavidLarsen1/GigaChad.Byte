@@ -112,9 +112,9 @@ textarea::placeholder {
 
 /* Bottom Area */
 
-/* #clientPreview { 
+ #clientPreview { 
     grid-area: client-preview;
-    /* align-self: center; 
+    align-self: center; 
     background-color: #ff7824;
     margin: 3px 0px;
     border: 2px solid white;
@@ -164,8 +164,8 @@ video {
     border: none;
     margin: 45px;
     /* width: 100%;
-    height: 50%; */
-}
+    height: 50%;}
+
 
 /* Chat GPT gave this code for the classes: */
 .bubble {
