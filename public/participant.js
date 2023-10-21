@@ -89,3 +89,52 @@ takeScreenshotButton.addEventListener("click", () => {
 });
 });
 
+
+
+
+
+// experamental screenshot download
+// Function to download content of elements with the "download-content" class as an image
+function downloadContentAsImage() {
+  const downloadElements = document.querySelectorAll(".download-content");
+  const saveButton = document.getElementById("save");
+
+  // Add a click event listener to the "save" button
+  saveButton.addEventListener("click", async () => {
+    // Loop through all elements with the "download-content" class
+    downloadElements.forEach(async (downloadElement, index) => {
+      // Create a canvas element for each element
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+
+      // Set the canvas size to match the content's dimensions
+      canvas.width = downloadElement.offsetWidth;
+      canvas.height = downloadElement.offsetHeight;
+
+      // Draw the content of the current "download-content" element onto the canvas
+      await html2canvas(downloadElement, { canvas }).then(() => {
+        // Convert the canvas content to an image data URL
+        const imageDataUrl = canvas.toDataURL("image/png");
+
+        // Create a temporary link to download the image
+        const downloadLink = document.createElement("a");
+        downloadLink.href = imageDataUrl;
+        downloadLink.download = `downloaded_image_${index}.png`;
+        downloadLink.click();
+      });
+    });
+  });
+}
+
+// Call the function to initialize the download functionality
+downloadContentAsImage();
+
+
+
+
+
+
+
+
+
+
