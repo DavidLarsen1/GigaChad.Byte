@@ -67,7 +67,7 @@ submit.addEventListener("click", e => {
 
 // new screenshot type that only sends to id screenshotbox and takes from client-screen
 document.addEventListener("DOMContentLoaded", () => {
-const takeScreenshotButton = document.getElementById("screenshotbox");
+const takeScreenshotButton = document.getElementById("screenshotButton");
 const clientScreen = document.getElementById("client-screen");
 const screenshotbox = document.getElementById("screenshotbox");
 
@@ -97,7 +97,7 @@ takeScreenshotButton.addEventListener("click", () => {
 // Function to download content of elements with the "download-content" class as an image
 document.getElementById("save").addEventListener("click", function () {
   // Find the element with the class "download-content"
-  const downloadContent = document.getElementById("screenshotArea");
+  const downloadContent = document.getElementById("screenshotbox");
 
   // Use html2canvas to capture a screenshot of the element
   html2canvas(downloadContent).then(function (canvas) {
