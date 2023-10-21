@@ -115,60 +115,79 @@ document.getElementById("save").addEventListener("click", function () {
 });
 
 
-const screenshotbox = document.getElementById("screenshotbox");
-const whiteboardCanvas = document.createElement("canvas");
-whiteboardCanvas.width = screenshotbox.Width;
-whiteboardCanvas.height = screenshotbox.Height;
-const ctx = whiteboardCanvas.getContext('2d');
-const whiteboardButton = document.getElementById("whiteboardButton");
-let whiteboard = false;
-let isDrawing = false;
-let lastX = 0;
-let lastY = 0;
+// Start whiteboard stuff
+// const screenshotbox = document.createElement("screenshotbox")
+// const whiteboardCanvas = document.querySelector("canvas#invbox");
+// const ctx = whiteboardCanvas.getContext('2d');
+// ctx.strokeStyle = "black";
+// ctx.lineWidth = 10;
+// ctx.lineCap = "round"
+// ctx.whiteboardCanvas.width = window.innerWidth;
+// ctx.whiteboardCanvas.height = window.innerHeight;
+// const whiteboardButton = document.getElementById("whiteboardButton");
+// let whiteboard = false;
+// let isDrawing = false;
+// let lastX = 0;
+// let lastY = 0;
 
-// whiteboard functionallity:
+// // Whiteboard functionality toggle
 // whiteboardButton.addEventListener('click', () => {
-//   if (!whiteboard) {
-//     whiteboard = true
-//   }
-//   else {
-//     whiteboard = false
-//   } return
+//   whiteboard = !whiteboard;
+//   console.log("start whiteboard")
 // });
 
 // function startDrawing(e) {
-//   isDrawing = true
-//   [lastX, lastY] = [e.clientX, e.clientY]
+//   isDrawing = true;
+//   [lastX, lastY] = [e.clientX, e.clientY];
+
 // }
 
 // function draw(e) {
 //   if (!isDrawing) return;
-//     ctx.beginPath();
-//   ctx.strokeStyle = "black";
-//   ctx.lineWidth = 2;
+//   ctx.beginPath();
 //   ctx.moveTo(lastX, lastY);
 //   ctx.lineTo(e.clientX, e.clientY);
 //   ctx.stroke();
-//   [lastX, lastY] = [e.clientX, e.clientY]
+//   [lastX, lastY] = [e.clientX, e.clientY];
+
 // }
-// if (whiteboard) {
-// whiteboardCanvas.addEventListener('mousedown', startDrawing);
-// whiteboardCanvas.addEventListener('mousemove', draw);
+
+// whiteboardCanvas.addEventListener('mousedown', (e) => {
+//   if (whiteboard) {
+//     console.log('mousedown')
+//     startDrawing(e);
+//   }
+// });
+
+// whiteboardCanvas.addEventListener('mousemove', (e) => {
+//   if (whiteboard) {
+//     draw(e);
+//   }
+// });
+
+
 // whiteboardCanvas.addEventListener('mouseup', () => isDrawing = false);
 // whiteboardCanvas.addEventListener('mouseout', () => isDrawing = false);
+
 // whiteboardCanvas.addEventListener('touchstart', (e) => {
 //   e.preventDefault();
-//   startDrawing(e.touches[0]);
+//   if (whiteboard) {
+//     console.log('touchstart')
+//     startDrawing(e.touches[0]);
+//   }
 // });
+
 // whiteboardCanvas.addEventListener('touchmove', (e) => {
 //   e.preventDefault();
-//   draw(e.touches[0])
+//   if (whiteboard) {
+//     console.log('touchmove')
+//     draw(e.touches[0]);
+//   }
 // });
-// whiteboardCanvas.addEventListener('touched', () =>
-// isDrawing = false);
-// whiteboardCanvas.addEventListener('touchcancel', () =>
-// isDrawing = false);
-// }
+
+// whiteboardCanvas.addEventListener('touchend', () => isDrawing = false);
+// whiteboardCanvas.addEventListener('touchcancel', () => isDrawing = false);
+
 
 
 

@@ -51,8 +51,10 @@ body {
 #invbox {
     grid-column:  1/4;
     grid-row: 2/3;
+    /* z-index: 20; */
     /* grid-area: notes; */
     background-color: rgba(157, 60, 60, 0);
+    /* opacity: 50%; */
     width: 100%;
     height: 100%;
 }
