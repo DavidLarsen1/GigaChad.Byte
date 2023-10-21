@@ -115,9 +115,11 @@ document.getElementById("save").addEventListener("click", function () {
 });
 
 
-
-const canvas = document.getElementById("screenshotCanvas");
-const ctx = canvas.getContext('2d');
+const screenshotbox = document.getElementById("screenshotbox");
+const whiteboardCanvas = document.createElement("canvas");
+whiteboardCanvas.width = screenshotbox.Width;
+whiteboardCanvas.height = screenshotbox.Height;
+const ctx = whiteboardCanvas.getContext('2d');
 const whiteboardButton = document.getElementById("whiteboardButton");
 let whiteboard = false;
 let isDrawing = false;
@@ -150,21 +152,21 @@ function draw(e) {
   [lastX, lastY] = [e.clientX, e.clientY]
 }
 if (whiteboard) {
-canvas.addEventListener('mousedown', startDrawing);
-canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mouseup', () => isDrawing = false);
-canvas.addEventListener('mouseout', () => isDrawing = false);
-canvas.addEventListener('touchstart', (e) => {
+whiteboardCanvas.addEventListener('mousedown', startDrawing);
+whiteboardCanvas.addEventListener('mousemove', draw);
+whiteboardCanvas.addEventListener('mouseup', () => isDrawing = false);
+whiteboardCanvas.addEventListener('mouseout', () => isDrawing = false);
+whiteboardCanvas.addEventListener('touchstart', (e) => {
   e.preventDefault();
   startDrawing(e.touches[0]);
 });
-canvas.addEventListener('touchmove', (e) => {
+whiteboardCanvas.addEventListener('touchmove', (e) => {
   e.preventDefault();
   draw(e.touches[0])
 });
-canvas.addEventListener('touched', () =>
+whiteboardCanvas.addEventListener('touched', () =>
 isDrawing = false);
-canvas.addEventListener('touchcancel', () =>
+whiteboardCanvas.addEventListener('touchcancel', () =>
 isDrawing = false);
 }
 
@@ -172,12 +174,17 @@ isDrawing = false);
 
 // Create a function for the text bubble button.
 const bubbleButton = document.getElementById('bubbleButton');
+whiteboardCanvas.width = screenshotbox.Width;
+whiteboardCanvas.height = screenshotbox.Height;
 bubbleButton.addEventListener('click', () => {
   const bubble = document.createElement("div");
-  bubble.classname.add('bubble');
+  bubble.classList.add('bubble');
   const content = document.createElement("div");
-  bubble.classname.add('content');
-  canvas.appendchild(bubble)
+  content.classList.add('content');
+  const handle = document.createElement("div");
+  handle.classList.add('handle');
+  whiteboardCanvas.appendchild(bubble)
+  bubble.appendchild(handle)
   bubble.appendchild(content)
 });
 
@@ -185,14 +192,15 @@ let isDragging = false;
 let initialX;
 let initialY;
 
-const bubble = document.querySelector(".bubble");
-const handle = document.querySelector(".handle");
-
-handle.addEventListener("mousedown", (e) => {
+const bubble = document.getElementsByClassName("bubble");
+const handle = document.getElementsByClassName("handle");
+for (let i = 0; i < handle.length; i++) {
+handle[i].addEventListener("mousedown", (e) => {
   isDragging = true;
   initialX = e.clientX - bubble.getBoundingClientRect().left;
   initialY = e.clientY - bubble.getBoundingClientRect().top;
 });
+}
 
 document.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
