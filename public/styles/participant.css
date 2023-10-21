@@ -32,6 +32,11 @@ body {
   align-items: center;
 }
 
+video {
+  height: 100%;
+  width: 100%;
+}
+
 #note {
   height: auto;
   overflow-y: hidden;
@@ -93,7 +98,7 @@ textarea::placeholder {
   margin-bottom: 13%;
 }
 
-#question {
+#questionText {
   height: auto;
   overflow-y: hidden;
   margin-left: 5%;

@@ -22,7 +22,7 @@
 
       <h1>Teacher share here</h1>
 
-      <div id="presentButtons"></div>
+      <div id="shareButton"></div>
 
       <!-- here is the share screen button for students view -->
       <button class="orangeButton" id="viewTeacher">SHARE SCREEN</button>
@@ -32,20 +32,23 @@
         <div id="questionContainer">
  
         </div>
-        <button class="orangeButton" id="clear1Button">Clear 1</button>
-        <button class="orangeButton" id="clearAllButton">Clear All</button>
+        <div id="questionButtons">
+            <button class="orangeButton" id="clear1Button">CLEAR 1</button>
+            <button class="orangeButton" id="clearAllButton">CLEAR All</button>
+        </div>
       </div <!-- Presenter Notes -->
       <div id="noteContainer">
         <textarea id="note" placeholder="Notes"></textarea>
       </div>
-
-
-      <video id="localScreen" autoplay playsinline style="display: none;"></video>
-      <canvas id="sharedCanvas" style="display: none;"></canvas>
+ 
+<!-- this is to show other web pages, not worth it right now. -->
+      <!-- <video id="localScreen" autoplay playsinline style="display: none;"></video>
+      <canvas id="sharedCanvas" style="display: none;"></canvas> -->
 
       <script>
 
       </script>
+    </div>
   </main>
   </div>
   </div>

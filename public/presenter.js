@@ -1,7 +1,33 @@
 // presenter.js
 'use strict';
 const socket = io();
-const peer = new RTCPeerConnection();
+const peer = new RTCPeerConnection({
+  iceServers: [
+      {
+        urls: "stun:stun.relay.metered.ca:80",
+      },
+      {
+        urls: "turn:a.relay.metered.ca:80",
+        username: "68099be6bbbd15dd03361092",
+        credential: "DupS1hUdUGzwahXt",
+      },
+      {
+        urls: "turn:a.relay.metered.ca:80?transport=tcp",
+        username: "68099be6bbbd15dd03361092",
+        credential: "DupS1hUdUGzwahXt",
+      },
+      {
+        urls: "turn:a.relay.metered.ca:443",
+        username: "68099be6bbbd15dd03361092",
+        credential: "DupS1hUdUGzwahXt",
+      },
+      {
+        urls: "turn:a.relay.metered.ca:443?transport=tcp",
+        username: "68099be6bbbd15dd03361092",
+        credential: "DupS1hUdUGzwahXt",
+      },
+  ],
+});
 
 const viewTeacher = document.getElementById('viewTeacher');
 viewTeacher.addEventListener('click', async () => {
