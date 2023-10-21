@@ -52,33 +52,33 @@ socket.on('icecandidate', async (candidate) => {
 });
 
 
-// let sharingInterval;
-// const shareScreenButton = document.getElementById("shareScreenButton");
-// const localScreen = document.getElementById("localScreen");
-// const sharedCanvas = document.getElementById("sharedCanvas");
+let sharingInterval;
+const shareScreenButton = document.getElementById("shareScreenButton");
+const localScreen = document.getElementById("localScreen");
+const sharedCanvas = document.getElementById("sharedCanvas");
 
-// shareScreenButton.addEventListener("click", () => {
-//   if (!sharingInterval) {
-//     // Start screen sharing
-//     sharingInterval = setInterval(shareWebpage, 1000);
-//     shareScreenButton.textContent = "STOP SHARING";
-//   } else {
-//     // Stop screen sharing
-//     clearInterval(sharingInterval);
-//     sharingInterval = null;
-//     shareScreenButton.textContent = "START SHARING";
-//   }
-// });
+shareScreenButton.addEventListener("click", () => {
+  if (!sharingInterval) {
+    // Start screen sharing
+    sharingInterval = setInterval(shareWebpage, 1000);
+    shareScreenButton.textContent = "STOP SHARING";
+  } else {
+    // Stop screen sharing
+    clearInterval(sharingInterval);
+    sharingInterval = null;
+    shareScreenButton.textContent = "START SHARING";
+  }
+});
 
-// function shareWebpage() {
-//   // Capture the webpage content and share it
-//   const context = sharedCanvas.getContext("2d");
-//   sharedCanvas.width = window.innerWidth;
-//   sharedCanvas.height = window.innerHeight;
-//   context.drawImage(document.documentElement, 0, 0, window.innerWidth, window.innerHeight);
+function shareWebpage() {
+  // Capture the webpage content and share it
+  const context = sharedCanvas.getContext("2d");
+  sharedCanvas.width = window.innerWidth;
+  sharedCanvas.height = window.innerHeight;
+  context.drawImage(document.documentElement, 0, 0, window.innerWidth, window.innerHeight);
 
-//   const dataURL = sharedCanvas.toDataURL("image/jpeg", 0.7);
-// }
+  const dataURL = sharedCanvas.toDataURL("image/jpeg", 0.7);
+}
 
 
 
