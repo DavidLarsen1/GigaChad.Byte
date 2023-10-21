@@ -90,8 +90,9 @@ const submit = document.getElementById('submitButton');
 const question = document.getElementById('questionText')
 submit.addEventListener("click", e => {
   e.preventDefault();
-  if (question.textContent === "") {return};
-  socket.emit('submit-question', question.textContent);
+  if (question.value === "") {return};
+  socket.emit('submit-question', question.value);
+  question.value = "";
 });
 
 
