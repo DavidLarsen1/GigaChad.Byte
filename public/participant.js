@@ -97,7 +97,7 @@ takeScreenshotButton.addEventListener("click", () => {
 // Function to download content of elements with the "download-content" class as an image
 document.getElementById("save").addEventListener("click", function () {
   // Find the element with the class "download-content"
-  const downloadContent = document.querySelector(".download-content");
+  const downloadContent = document.querySelector("download-content" + "noteContainer");
 
   // Use html2canvas to capture a screenshot of the element
   html2canvas(downloadContent).then(function (canvas) {
