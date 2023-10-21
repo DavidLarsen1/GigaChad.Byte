@@ -52,6 +52,40 @@ socket.on('icecandidate', async (candidate) => {
 });
 
 
+// This Code is not needed, but could be used to improve share screen in the future.
+// let sharingInterval;
+// const shareScreenButton = document.getElementById("shareScreenButton");
+// const localScreen = document.getElementById("localScreen");
+// const sharedCanvas = document.getElementById("sharedCanvas");
+
+// shareScreenButton.addEventListener("click", () => {
+//   if (!sharingInterval) {
+//     // Start screen sharing
+//     sharingInterval = setInterval(shareWebpage, 1000);
+//     shareScreenButton.textContent = "STOP SHARING";
+//   } else {
+//     // Stop screen sharing
+//     clearInterval(sharingInterval);
+//     sharingInterval = null;
+//     shareScreenButton.textContent = "START SHARING";
+//   }
+// });
+
+// function shareWebpage() {
+//   // Capture the webpage content and share it
+//   const context = sharedCanvas.getContext("2d");
+//   sharedCanvas.width = window.innerWidth;
+//   sharedCanvas.height = window.innerHeight;
+//   context.drawImage(document.documentElement, 0, 0, window.innerWidth, window.innerHeight);
+
+//   const dataURL = sharedCanvas.toDataURL("image/jpeg", 0.7);
+// }
+
+
+
+
+
+
 // add text here
 const submit = document.getElementById('submitButton');
 const question = document.getElementById('questionText')
