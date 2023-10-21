@@ -59,14 +59,14 @@ body {
     height: 100%;
     max-height: 31em;
 }
-/* #invbox {
+    #invbox {
     grid-column:  1/4;
     grid-row: 2/3;
-    /* grid-area: notes;
+    grid-area: notes;
     background-color: rgba(157, 60, 60, 0);
     width: 100%;
     height: 100%;
-} */
+}
 
 img {
   margin: 0px 230px;
@@ -112,9 +112,9 @@ textarea::placeholder {
 
 /* Bottom Area */
 
-/* #clientPreview { 
+ #clientPreview { 
     grid-area: client-preview;
-    /* align-self: center; 
+    align-self: center; 
     background-color: #ff7824;
     margin: 3px 0px;
     border: 2px solid white;
@@ -164,8 +164,8 @@ video {
     border: none;
     margin: 45px;
     /* width: 100%;
-    height: 50%; */
-}
+    height: 50%;}
+
 
 /* Chat GPT gave this code for the classes: */
 .bubble {
