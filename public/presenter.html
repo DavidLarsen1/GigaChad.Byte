@@ -20,39 +20,37 @@
     <main>
         <div id="content">
 
-            <!-- <h1>Teacher share here</h1> -->
-
-
-            <!-- here is the share screen button for students view -->
-            <div id="shareButton">
-                <button class="orangeButton" id="viewTeacher">SHARE</button>
-            </div>
             <!-- The Question Area -->
-            
-            <div id=questionSection>
-                <div id="questionContainer">
-
-                </div>
+            <div id="questionSection">
+                <div id="questionContainer"></div>
+                
                 <div id="questionButtons">
+                    <!-- Buttons under the notes box for clearing notes -->
                     <button class="orangeButton" id="clear1Button">CLEAR 1</button>
                     <button class="orangeButton" id="clearAllButton">CLEAR All</button>
                 </div>
-            </div 
-            <!-- Presenter Notes -->
-            <div id="noteContainer">
-                <textarea id="note" placeholder="Notes"></textarea>
             </div>
 
+
+            <div id="totalNotes">
+            <!-- box for writing notes -->
+                    <div id="noteContainer">
+                        <textarea id="note" placeholder="Notes"></textarea>
+                    </div>
+            <!-- here is the share screen button for students view -->
+                <div id="shareButton">
+                    <button class="orangeButton" id="viewTeacher">SHARE</button>
+                </div>
+            </div>
+
+
+
+            <!-- video sharing to student -->
             <video id="localScreen" autoplay playsinline style="display: none;"></video>
             <canvas id="sharedCanvas" style="display: none;"></canvas>
 
-            <script>
-
-            </script>
         </div>
     </main>
-    </div>
-    </div>
 </body>
 <script src="/socket.io/socket.io.js"></script>
 <script src="./presenter.js"></script>
