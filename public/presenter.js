@@ -70,7 +70,7 @@ socket.on('icecandidate', async (candidate) => {
 
 
 // Question adding socket connection.
-const questionContainer = document.getElementById("questionContainer");
+const questionContainer = document.getElementById("incoming");
 socket.on('receive-question', (question) => {
   const message = document.createElement("p");
   message.textContent = question;
