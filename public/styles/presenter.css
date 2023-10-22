@@ -4,77 +4,113 @@
 @import "buttons.css";
 
 #content {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1.4fr 3.2fr 1.4fr;
-    grid-template-rows: 0.5fr 4.8fr auto;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "toolButtons toolButtons toolButtons"
-        "screenshot-box screenshot-box notes"
-        "client-preview question-box save";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
+    grid-gap: 5%; /* Define the gap between grid items */
+    padding: 20px; 
+    min-height: 100vh;
 }
 
 body {
     background: #272727;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans serif;
     height: 100%;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
-#invox{
-    grid-column: 1/4;
-    grid-row: 2/3;
-    background-color: #00000000;
-}
-#screenshotArea{
-    grid-column: 1/4;
-    grid-row: 2/3;
-    background-color: #00000000;
+#questionSection {
+    justify-items: right;
+    align-items: right;
+    border: none;
+    grid-column: 2/3;
+    grid-row: 1/3;
 }
 
-/* Top Area */
+#questionContainer {
 
-#toolButtons {
-    grid-area: toolButtons;
-    display: flex;
-    justify-self: center;
-    justify-content: space-between;
     margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-#whiteboardButton,
-#bubbleButton,
-#screenshotButton {
-    margin: 0 10px;
-}
-
-/* Middle Area */
-
-#screenshotbox {
-    grid-area: screenshot-box;
-    background-color: beige;
-    width: 100%;
+    border-radius: 5px;
     height: 100%;
+    max-height: 700px;
+    width: 100%;
+    background-color: orange;
+
 }
 
-#noteContainer {
-    grid-area: notes;
+/* #questionButtons {
+    grid-column: 2/3;
+    grid-row: 3/4;
     justify-self: center;
     border: none;
     display: flex;
     align-items: center;
+    margin-bottom: 13%;
+} */
+
+
+
+#questionButtons {
+    position: relative;
+    text-align: center;
+    grid-column: 1/2;
+    grid-row: 3/4;
+    border: none;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center;
+    justify-self: center;
+    margin-bottom: 10px; /* Adjust margin-bottom as needed */
+    padding-top: 44px;
+}
+
+#clear1Button, #clearAllButton {
+    overflow-y: hidden;
+    padding: 10px 20px; /* Adjust padding as needed */
+    margin: 0 10px; /* Adjust horizontal margin as needed */
+    justify-items: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    min-width: 80px;
+}
+
+.orangeButton, #clear1Button, #clearAllButton {
+    width: 150px; /* Set a fixed width */
+    height: 50px; 
+}
+
+
+
+/* Notes Section */
+#noteContainer {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    justify-items: left;
+    border: none;
     width: 100%;
-    height: 100%;
+    max-height: 700px;
+    display: flex;
+    margin-top: 20px;
+    align-items: left;
+    margin-bottom: 0;
 }
 
 #note {
-    height: 98%;
-    width: 90%;
+    height: 200px;
+    width: max-content;
     overflow-y: hidden;
-    margin-left: 5%;
+    margin-left: 0%;
     resize: none;
+    min-height: 100%;
+    max-height: 200px;
+    min-width: 100%;
     border-radius: 5px;
     border: 2px solid white;
     background: #ffe2d6;
@@ -82,7 +118,7 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    padding: 3px;
+    /* padding: 3px; */
 }
 
 input[type="text"]::placeholder {
@@ -93,83 +129,46 @@ textarea::placeholder {
     color: #ff7824;
 }
 
-/* Bottom Area */
-
-#clientPreview {
-    grid-area: client-preview;
-    /* align-self: center; */
-    background-color: #ff7824;
-    margin: 3px 0px;
-    border: 2px solid white;
-    width: 95%;
-    height: 95%;
-    padding: 3%;
+#shareButton {
+    position: relative; /* Added position relative for consistent positioning */
+    text-align: center;
+    font-family: "Montserrat", sans-serif; /* Set the font family */
+    grid-column: 1/2;
+    grid-row: 3/4;
+    border: none;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center;
+    margin-bottom: 205px; /* Adjust margin-bottom as needed */
 }
-video{
-    width: 50px;
+
+#viewTeacher {
+    overflow-y: hidden;
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif; /* Set the font family */
+    font-size: 1.2em; /* Set the font size */
+    text-transform: uppercase;
+    font-weight: 500;
+    display: flex;
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+    width: 150px; /* Set a fixed width */
     height: 50px;
 }
 
-#questionContainer {
-    grid-area: question-box;
-    display: flex;
-    justify-self: center;
-    justify-content: space-between;
-    margin: 40px;
-    width: 80%;
+
+
+/* Alternate Button Styling */
+
+@media (min-width: 768px) {
+    .orangeButton {
+      padding: 30px 80px;
+    }
 }
 
-#questionText {
-
-    resize: none;
-    overflow-y: hidden;
-    width: 50%;
-    border-radius: 5px;
-    border: 2px solid white;
-    background: #ffe2d6;
-    color: #000000;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    padding: 3px;
+.orangeButton, #clear1Button, #clearAllButton{
+    width: 150px; /* Set a fixed width */
+    height: 50px; 
 }
-
-#submitButton {
-    margin: 10px;
-}
-
-#saveButton {
-    grid-area: save;
-    display: flex;
-    justify-self: center;
-    justify-content: space-between;
-    margin-left: 5%;
-    border: none;
-    margin: 45px;
-    /* width: 100%;
-    height: 50%; */
-}
-
-/* Chat GPT gave this code for the classes: */
-/* .bubble {
-  position: absolute;
-  width: 200px;
-  background-color: #3498db;
-  border-radius: 10px;
-  cursor: move;
-}
-
-.handle {
-  width: 100%;
-  height: 20px;
-  background-color: #2980b9;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  cursor: move;
-}
-
-.content {
-  padding: 10px;
-  color: #ffffff;
-  user-select: none;
-} */
