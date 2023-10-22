@@ -82,6 +82,7 @@ takeScreenshotButton.addEventListener("click", () => {
 
   const screenshotImage = new Image();
   screenshotImage.src = canvas.toDataURL('image/png');
+  screenshotImage.id = 'screenShot'; // Set the id
 
   // Clear any previous content in the screenshotBox and add the new screenshot
   screenshotbox.innerHTML = '';
