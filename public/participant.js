@@ -67,7 +67,7 @@ submit.addEventListener("click", e => {
 
 // new screenshot type that only sends to id screenshotbox and takes from client-screen
 document.addEventListener("DOMContentLoaded", () => {
-const takeScreenshotButton = document.getElementById("screenshotButton");
+const takeScreenshotButton = document.getElementById("takeScreenshotButton");
 const clientScreen = document.getElementById("client-screen");
 const screenshotbox = document.getElementById("screenshotbox");
 
@@ -98,7 +98,6 @@ takeScreenshotButton.addEventListener("click", () => {
 document.getElementById("save").addEventListener("click", function () {
   // Find the element with the class "download-content"
   const downloadContent = document.getElementById("screenshotbox");
-  const downloadContent = document.getElementById("screenshotbox");
 
   // Use html2canvas to capture a screenshot of the element
   html2canvas(downloadContent).then(function (canvas) {
@@ -116,20 +115,14 @@ document.getElementById("save").addEventListener("click", function () {
 });
 
 
-// Start whiteboard stuff
-// const screenshotbox = document.createElement("screenshotbox")
-// const whiteboardCanvas = document.querySelector("canvas#invbox");
-// const ctx = whiteboardCanvas.getContext('2d');
-// ctx.strokeStyle = "black";
-// ctx.lineWidth = 10;
-// ctx.lineCap = "round"
-// ctx.whiteboardCanvas.width = window.innerWidth;
-// ctx.whiteboardCanvas.height = window.innerHeight;
-// const whiteboardButton = document.getElementById("whiteboardButton");
-// let whiteboard = false;
-// let isDrawing = false;
-// let lastX = 0;
-// let lastY = 0;
+
+const canvas = document.getElementById("screenshotCanvas");
+const ctx = canvas.getContext('2d');
+const whiteboardButton = document.getElementById("whiteboardButton");
+let whiteboard = false;
+let isDrawing = false;
+let lastX = 0;
+let lastY = 0;
 
 // whiteboard functionallity:
 // whiteboardButton.addEventListener('click', () => {
@@ -144,17 +137,6 @@ document.getElementById("save").addEventListener("click", function () {
 // function startDrawing(e) {
 //   isDrawing = true
 //   [lastX, lastY] = [e.clientX, e.clientY]
-// }
-// // Whiteboard functionality toggle
-// whiteboardButton.addEventListener('click', () => {
-//   whiteboard = !whiteboard;
-//   console.log("start whiteboard")
-// });
-
-// function startDrawing(e) {
-//   isDrawing = true;
-//   [lastX, lastY] = [e.clientX, e.clientY];
-
 // }
 
 // function draw(e) {
@@ -185,52 +167,6 @@ document.getElementById("save").addEventListener("click", function () {
 // canvas.addEventListener('touchcancel', () =>
 // isDrawing = false);
 // }
-// function draw(e) {
-//   if (!isDrawing) return;
-//   ctx.beginPath();
-//   ctx.moveTo(lastX, lastY);
-//   ctx.lineTo(e.clientX, e.clientY);
-//   ctx.stroke();
-//   [lastX, lastY] = [e.clientX, e.clientY];
-
-// }
-
-// whiteboardCanvas.addEventListener('mousedown', (e) => {
-//   if (whiteboard) {
-//     console.log('mousedown')
-//     startDrawing(e);
-//   }
-// });
-
-// whiteboardCanvas.addEventListener('mousemove', (e) => {
-//   if (whiteboard) {
-//     draw(e);
-//   }
-// });
-
-
-// whiteboardCanvas.addEventListener('mouseup', () => isDrawing = false);
-// whiteboardCanvas.addEventListener('mouseout', () => isDrawing = false);
-
-// whiteboardCanvas.addEventListener('touchstart', (e) => {
-//   e.preventDefault();
-//   if (whiteboard) {
-//     console.log('touchstart')
-//     startDrawing(e.touches[0]);
-//   }
-// });
-
-// whiteboardCanvas.addEventListener('touchmove', (e) => {
-//   e.preventDefault();
-//   if (whiteboard) {
-//     console.log('touchmove')
-//     draw(e.touches[0]);
-//   }
-// });
-
-// whiteboardCanvas.addEventListener('touchend', () => isDrawing = false);
-// whiteboardCanvas.addEventListener('touchcancel', () => isDrawing = false);
-
 
 
 
@@ -244,24 +180,7 @@ document.getElementById("save").addEventListener("click", function () {
 //   canvas.appendchild(bubble)
 //   bubble.appendchild(content)
 // });
-// Create a function for the text bubble button.
-// const bubbleButton = document.getElementById('bubbleButton');
-// const screenshotbox = document.getElementById('screenshotbox');
-// bubbleButton.addEventListener('click', () => {
-//   const bubble = document.createElement("div");
-//   bubble.classList.add('bubble');
-//   const content = document.createElement("div");
-//   content.classList.add('content');
-//   const handle = document.createElement("div");
-//   handle.classList.add('handle');
-//   screenshotbox.appendchild(bubble)
-//   bubble.appendchild(handle)
-//   bubble.appendchild(content)
-// });
 
-// let isDragging = false;
-// let initialX;
-// let initialY;
 // let isDragging = false;
 // let initialX;
 // let initialY;
@@ -277,27 +196,7 @@ document.getElementById("save").addEventListener("click", function () {
 
 // document.addEventListener("mousemove", (e) => {
 //   if (!isDragging) return;
-// const bubble = document.getElementsByClassName("bubble");
-// const handle = document.getElementsByClassName("handle");
-// for (let i = 0; i < handle.length; i++) {
-// handle[i].addEventListener("mousedown", (e) => {
-//   isDragging = true;
-//   initialX = e.clientX - bubble.getBoundingClientRect().left;
-//   initialY = e.clientY - bubble.getBoundingClientRect().top;
-// });
-// }
 
-// document.addEventListener("mousemove", (e) => {
-//   if (!isDragging) return;
-
-//   const newX = e.clientX - initialX;
-//   const newY = e.clientY - initialY;
-//   bubble.style.left = newX + "px";
-//   bubble.style.top = newY + "px";
-// });
-// document.addEventListener("mouseup", () => {
-//   isDragging = false;
-// });
 //   const newX = e.clientX - initialX;
 //   const newY = e.clientY - initialY;
 //   bubble.style.left = newX + "px";
