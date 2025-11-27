@@ -106,9 +106,9 @@ node server.js
 
 ## **Contributors**
 
+*  Sean Walker – Project Leader; oversaw project workflow, coordinated team tasks, Backend development, real-time Q&A system, and HTML for question display.
+  
 * David Larsen – Backend development, screen sharing, download and note-taking functionality; contributed to CSS/HTML for all pages and frontend features.
-
-*  Sean Walker – Backend development, real-time Q&A system, and HTML for question display.
 
 * Francis James – Designed UI, CSS, and HTML.
 
